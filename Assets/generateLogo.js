@@ -1,3 +1,17 @@
+// Define the base Shape class
+class Shape {
+    constructor(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.color = color || "black";
+    }
+  
+    // Define a method to render the shape as an SVG string
+    render() {
+      throw new Error("Not implemented");
+    }
+};
+
 function generateLogo(data) {
     // switch statement based on index.js choice of shape
     switch(data.shape){
