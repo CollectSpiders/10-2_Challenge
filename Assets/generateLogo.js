@@ -38,6 +38,17 @@ class Square extends Shape {
     }
 };
 
+// Define the Triangle class that inherits from Shape
+class Triangle extends Shape {
+    constructor(x, y, size, color) {
+        super(x, y, color);
+        this.size = size;
+    }
+  
+    // Implement the render method for the Triangle class
+    render() {}
+}
+
 function generateLogo(data) {
     // switch statement based on index.js choice of shape
     switch(data.shape){
