@@ -1,5 +1,7 @@
 // required packages
 const inquirer = require('inquirer');
+const generateLogo = require('./generateLogo');
+const fs = require('fs');
 
 const logoQuestions = [
     // checks if user input is 3 or less characters, won't proceed to next question until criteria is meet
@@ -31,11 +33,19 @@ const logoQuestions = [
     }
 ];
 
+function writeToFile(data) {
+    fs.writeFile('logo.svg', generateLogo(data), err => {
+        if (err) {
+          console.error(err);
+        }
+    });
+}
+
 function init() {
     inquirer
         .prompt(logoQuestions)
         .then((response) =>
-            console.log(response));
+            writeToFile(response));
 }
 
 // Function call to initialize app
