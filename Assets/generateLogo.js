@@ -12,7 +12,7 @@ class Shape {
     }
 };
 
-// Define the Circle class that inherits from Shape
+// Circle class that inherits from Shape
 class Circle extends Shape {
     constructor(x, y, radius, color) {
         super(x, y, color);
@@ -25,28 +25,36 @@ class Circle extends Shape {
     }
 };
 
-// Define the Square class that inherits from Shape
+// Square class that inherits from Shape
 class Square extends Shape {
     constructor(x, y, size, color) {
         super(x, y, color);
         this.size = size;
     }
   
-    // Implement the render method for the Square class
+    // This renders the Square class
     render() {
         return `<rect x="${this.x}" y="${this.y}" width="${this.size}" height="${this.size}" fill="${this.color}" />`;
     }
 };
 
-// Define the Triangle class that inherits from Shape
+// Triangle class that inherits from Shape
 class Triangle extends Shape {
     constructor(x, y, size, color) {
         super(x, y, color);
         this.size = size;
     }
   
-    // Implement the render method for the Triangle class
-    render() {}
+    // Renders the Triangle class
+    render() {
+        const halfSize = this.size / 2;
+        const points = [
+            [this.x + halfSize, this.y],
+            [this.x, this.y + this.size],
+            [this.x + this.size, this.y + this.size]
+        ];
+        return `<polygon points="${points.map(p => p.join(',')).join(' ')}" fill="${this.color}" />`;
+    }
 }
 
 function generateLogo(data) {
