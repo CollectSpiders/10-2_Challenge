@@ -10,7 +10,7 @@ class Shape {
     render() {
         throw new Error("Not implemented");
     }
-}
+};
 
 // Define the Circle class that inherits from Shape
 class Circle extends Shape {
@@ -23,12 +23,25 @@ class Circle extends Shape {
     render() {
         return `<circle cx="${this.x}" cy="${this.y}" r="${this.radius}" fill="${this.color}" />`;
     }
-}
+};
+
+// Define the Square class that inherits from Shape
+class Square extends Shape {
+    constructor(x, y, size, color) {
+        super(x, y, color);
+        this.size = size;
+    }
+  
+    // Implement the render method for the Square class
+    render() {
+        return `<rect x="${this.x}" y="${this.y}" width="${this.size}" height="${this.size}" fill="${this.color}" />`;
+    }
+};
 
 function generateLogo(data) {
     // switch statement based on index.js choice of shape
     switch(data.shape){
-        // if shape is circle return ___
+        // if shape is circle dynamically return ___ 
         case 'Circle':
             return `
                 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +53,7 @@ function generateLogo(data) {
                 </svg>`
             break;
 
-        // if shape is square return ___
+        // if shape is square dynamically return ___
         case 'Square':
             return `
                 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +65,7 @@ function generateLogo(data) {
                 </svg>`
             break;
 
-        // if shape is triangle return ___
+        // if shape is triangle dynamically return ___
         case 'Triangle':
             return `
                 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +78,6 @@ function generateLogo(data) {
             break;
     }
 
-}
+};
 
 module.exports = generateLogo;
