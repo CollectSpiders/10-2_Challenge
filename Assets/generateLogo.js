@@ -1,16 +1,29 @@
 // Define the base Shape class
 class Shape {
     constructor(x, y, color) {
-      this.x = x;
-      this.y = y;
-      this.color = color || "black";
+        this.x = x;
+        this.y = y;
+        this.color = color || "black";
     }
   
     // Define a method to render the shape as an SVG string
     render() {
-      throw new Error("Not implemented");
+        throw new Error("Not implemented");
     }
-};
+}
+
+// Define the Circle class that inherits from Shape
+class Circle extends Shape {
+    constructor(x, y, radius, color) {
+        super(x, y, color);
+        this.radius = radius;
+    }
+  
+    // Implement the render method for the Circle class
+    render() {
+        return `<circle cx="${this.x}" cy="${this.y}" r="${this.radius}" fill="${this.color}" />`;
+    }
+}
 
 function generateLogo(data) {
     // switch statement based on index.js choice of shape
